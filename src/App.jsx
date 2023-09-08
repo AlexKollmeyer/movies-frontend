@@ -10,6 +10,11 @@ import React, { useState } from 'react';
 function App() {
 const [movies, setMovies] = useState([]);
 
+  const handleNewMovie = (newMovie) => {
+    const updatedMovies= [...movies, newMovie]
+    setMovies(updatedMovies)
+    }
+
   const selectedMovie ={
     title:"Forest Gump",
     runningTime:136,
@@ -21,7 +26,7 @@ const [movies, setMovies] = useState([]);
       <div className="flex-container">
         <MovieList movies={movies}/>
         <MovieInfo movieObj={selectedMovie}/>
-        <NewMovieForm/>
+        <NewMovieForm onNewMovie={handleNewMovie}/>
       </div>
     </div>
   );
